@@ -1,11 +1,5 @@
 # Go UI
-
-[![GitHub][github-badge]][github]
-[![Stars][]][github]
-![Build Status][]
-[![Version][]][npm]
-![MIT License][]
-![][size]
+<img src="./packages/docs/static/logo.svg" width="100" alt="logo" />
 
 Go UI is a set of design system components based on [system ui theme specification](https://system-ui.com/theme).
 It re-exports existing components from @theme-ui/components with the following differences:
