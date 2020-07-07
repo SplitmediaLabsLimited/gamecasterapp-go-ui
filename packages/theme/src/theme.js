@@ -70,39 +70,10 @@ let buttons = fromPairs(
         },
       },
     ],
-    // @deprecated
     [
-      'text',
+      'ghost',
       {
         bg: 'transparent',
-        textTransform: 'uppercase',
-        fontWeight: 'bold',
-
-        '&[disabled]': {
-          color: 'base.600',
-          bg: 'transparent',
-        },
-      },
-    ],
-    [
-      'transparent',
-      {
-        bg: 'transparent',
-        textTransform: 'uppercase',
-        fontWeight: 'bold',
-
-        '&[disabled]': {
-          color: 'base.600',
-          bg: 'transparent',
-        },
-      },
-    ],
-    // @deprecated
-    [
-      'rounded',
-      {
-        bg: 'transparent',
-        borderRadius: 9999,
         textTransform: 'uppercase',
         fontWeight: 'bold',
 
@@ -124,7 +95,7 @@ let buttons = fromPairs(
       },
     ],
     [
-      'transparentCircle',
+      'ghostCircle',
       {
         bg: 'transparent',
         borderRadius: 9999,

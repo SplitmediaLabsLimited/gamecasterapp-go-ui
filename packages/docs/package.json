@@ -27,16 +27,21 @@
     "@go-ui/components": "^0.0.0",
     "@styled-icons/material": "^10.7.0",
     "@styled-icons/octicons": "^10.6.0",
+    "@theme-ui/style-guide": "^0.3.0",
     "lodash": "^4.17.15",
+    "modern-normalize": "^0.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "theme-ui": "^0.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
+    "@storybook/cli": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@storybook/theming": "^5.3.19",
     "babel-loader": "^8.1.0"

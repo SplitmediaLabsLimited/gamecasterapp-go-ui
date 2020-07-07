@@ -1,19 +1,33 @@
-import { ThemeProvider } from '@theme-ui/core';
-import Theme from '@go-ui/theme';
 import React from 'react';
+import { jsx } from '@theme-ui/core';
+import { css as sx } from '@theme-ui/css';
+import Theme from '@go-ui/theme';
 import { addDecorator, addParameters } from '@storybook/react';
+import { ThemeProvider } from '@theme-ui/core';
+import { theme } from './theme';
+import { Global, css } from '@emotion/core';
+
+import 'modern-normalize';
 
 addDecorator((storyFn) => (
-  <ThemeProvider theme={Theme}>{storyFn()}</ThemeProvider>
+  <ThemeProvider theme={Theme}>
+    <Global
+      styles={sx({
+        fontFamily: 'body',
+        lineHeight: 'body',
+        fontWeight: 'body',
+        variant: 'styles',
+      })}
+    />
+    {storyFn()}
+  </ThemeProvider>
 ));
 
 addParameters({
   options: {
     showRoots: true,
+    theme: theme,
   },
-});
-
-addParameters({
   viewport: {
     viewports: {
       small: {

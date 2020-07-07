@@ -1,0 +1,242 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { Zap } from '@styled-icons/octicons/Zap';
+import { IconButton, Button, Flex, Box } from '@go-ui/components';
+
+import {
+  Delete,
+  Save,
+  CloudUpload,
+  KeyboardVoice,
+  Send,
+} from '@styled-icons/material';
+
+<Meta title="Components/Button" />
+
+# Button
+
+```js
+import { Button } from '@go-ui/components';
+```
+
+Primitive button component with variants
+
+## Variants
+
+### Fill
+
+<Preview>
+  <Story name="fill">
+    <>
+      <Flex p={1}>
+        <Button onClick={action('clicked')} mr="2">
+          Default
+        </Button>
+        <Button color="primary.300" onClick={action('clicked')} mr="2">
+          Primary
+        </Button>
+        <Button disabled onClick={action('clicked')} mr="2">
+          Disabled
+        </Button>
+        <Button color="system.danger" onClick={action('clicked')} mr="2">
+          Danger
+        </Button>
+        <Button color="white" onClick={action('clicked')} mr="2">
+          White
+        </Button>
+      </Flex>
+      <Flex p={1} sx={{ alignItems: 'center' }}>
+        <Button
+          color="system.danger"
+          size="xsmall"
+          onClick={action('clicked')}
+          mr="2">
+          xsmall
+        </Button>
+        <Button
+          color="system.warning"
+          size="small"
+          onClick={action('clicked')}
+          mr="2">
+          small
+        </Button>
+        <Button color="system.success" onClick={action('clicked')} mr="2">
+          default / medium
+        </Button>
+        <Button
+          size="large"
+          color="system.info"
+          onClick={action('clicked')}
+          mr="2">
+          large
+        </Button>
+      </Flex>
+    </>
+  </Story>
+</Preview>
+
+### Fill With Icon
+
+<Preview>
+  <Story name="Fill With Icon">
+    <Flex sx={{ p: 1, alignItems: 'center' }}>
+      <Button color="system.danger" onClick={action('clicked')} mr="2">
+        <Box as={Delete} sx={{ mr: 2, ml: -1 }} /> DELETE
+      </Button>
+      <Button color="primary.300" onClick={action('clicked')} mr="2">
+        SEND <Box as={Send} sx={{ mr: -1, ml: 2 }} />
+      </Button>
+      <Button color="white" onClick={action('clicked')} mr="2">
+        <Box as={CloudUpload} sx={{ mr: 2, ml: -1 }} /> UPLOAD
+      </Button>
+      <Button disabled onClick={action('clicked')} mr="2">
+        <Box as={KeyboardVoice} sx={{ mr: 2, ml: -1 }} /> TALK
+      </Button>
+      <Button color="base.600" onClick={action('clicked')} mr="2">
+        <Box as={Save} sx={{ mr: 2, ml: -1 }} /> SAVE
+      </Button>
+    </Flex>
+  </Story>
+</Preview>
+
+### Outline
+
+<Preview>
+  <Story name="Outline Variant">
+    <>
+      <Flex p={1}>
+        <Button variant="outline" onClick={action('clicked')} mr="2">
+          Default
+        </Button>
+        <Button
+          variant="outline"
+          color="primary.300"
+          onClick={action('clicked')}
+          mr="2">
+          Primary
+        </Button>
+        <Button variant="outline" disabled onClick={action('clicked')} mr="2">
+          Disabled
+        </Button>
+        <Button
+          variant="outline"
+          color="system.danger"
+          onClick={action('clicked')}
+          mr="2">
+          Danger
+        </Button>
+        <Button
+          variant="outline"
+          color="white"
+          onClick={action('clicked')}
+          mr="2">
+          White
+        </Button>
+      </Flex>
+      <Flex p={1} sx={{ alignItems: 'center' }}>
+        <Button
+          variant="outline"
+          color="system.danger"
+          size="xsmall"
+          onClick={action('clicked')}
+          mr="2">
+          xsmall
+        </Button>
+        <Button
+          variant="outline"
+          color="system.warning"
+          size="small"
+          onClick={action('clicked')}
+          mr="2">
+          small
+        </Button>
+        <Button
+          variant="outline"
+          color="system.success"
+          onClick={action('clicked')}
+          mr="2">
+          default / medium
+        </Button>
+        <Button
+          variant="outline"
+          size="large"
+          color="system.info"
+          onClick={action('clicked')}
+          mr="2">
+          large
+        </Button>
+      </Flex>
+    </>
+  </Story>
+</Preview>
+
+### Ghost
+
+<Preview>
+  <Story name="Ghost Variant">
+    <>
+      <Flex p={1}>
+        <Button variant="ghost" onClick={action('clicked')} mr="2">
+          Default
+        </Button>
+        <Button
+          variant="ghost"
+          color="primary.300"
+          onClick={action('clicked')}
+          mr="2">
+          Primary
+        </Button>
+        <Button variant="ghost" disabled onClick={action('clicked')} mr="2">
+          Disabled
+        </Button>
+        <Button
+          variant="ghost"
+          color="system.danger"
+          onClick={action('clicked')}
+          mr="2">
+          Danger
+        </Button>
+        <Button
+          variant="ghost"
+          color="white"
+          onClick={action('clicked')}
+          mr="2">
+          White
+        </Button>
+      </Flex>
+      <Flex p={1} sx={{ alignItems: 'center' }}>
+        <Button
+          variant="ghost"
+          color="system.danger"
+          size="xsmall"
+          onClick={action('clicked')}
+          mr="2">
+          xsmall
+        </Button>
+        <Button
+          variant="ghost"
+          color="system.warning"
+          size="small"
+          onClick={action('clicked')}
+          mr="2">
+          small
+        </Button>
+        <Button
+          variant="ghost"
+          color="system.success"
+          onClick={action('clicked')}
+          mr="2">
+          default / medium
+        </Button>
+        <Button
+          variant="ghost"
+          color="system.info"
+          onClick={action('clicked')}
+          size="large"
+          mr="2">
+          large
+        </Button>
+      </Flex>
+    </>
+  </Story>
+</Preview>
