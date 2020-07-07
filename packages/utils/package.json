@@ -1,0 +1,36 @@
+{
+  "name": "@go-ui/utils",
+  "version": "0.0.0",
+  "description": "various go-ui utility functions",
+  "keywords": [
+    "go-ui"
+  ],
+  "author": "cvpcasada <cvpcasada@outlook.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/go-ui-utils.js",
+  "module": "dist/go-ui-utils.esm.js",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "prepare": "microbundle --no-compress --jsx React.createElement",
+    "watch": "microbundle watch --no-compress --jsx React.createElement",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@styled-system/core": "^5.1.2",
+    "@styled-system/should-forward-prop": "^5.1.5",
+    "@theme-ui/css": "^0.3.1",
+    "hoist-non-react-statics": "^3.3.2",
+    "lodash": "^4.17.15",
+    "polished": "^3.6.5"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "@go-ui/components",
+  "version": "0.0.0",
+  "description": "go-ui common components",
+  "keywords": [
+    "react",
+    "react-dom",
+    "theme-ui"
+  ],
+  "sideEffects": false,
+  "author": "cvpcasada <cvpcasada@outlook.com>",
+  "homepage": "http://go-ui.vercel.com",
+  "license": "MIT",
+  "main": "dist/go-ui-components.js",
+  "module": "dist/go-ui-components.esm.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gamecasterapp/go-ui.git"
+  },
+  "scripts": {
+    "prepare": "microbundle --no-compress --jsx React.createElement",
+    "watch": "microbundle watch --no-compress --jsx React.createElement",
+    "typecheck": "tsc --noEmit",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "bugs": {
+    "url": "https://github.com/gamecasterapp/go-ui/issues"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/is-prop-valid": "^0.8.8",
+    "@emotion/styled": "^10.0.27",
+    "@go-ui/utils": "^0.0.0",
+    "@styled-icons/octicons": "^10.6.0",
+    "@theme-ui/components": "^0.3.1",
+    "@theme-ui/core": "^0.3.1",
+    "@theme-ui/css": "^0.3.1",
+    "lodash": "^4.17.15"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.1.0"
+  }
+}
