@@ -3,9 +3,16 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'packages/**'
+      - '!packages/**/*.md'
+
   pull_request:
     branches:
       - master
+    paths:
+      - 'packages/**'
+      - '!packages/**/*.md'
 jobs:
   deploy:
     runs-on: ubuntu-latest
