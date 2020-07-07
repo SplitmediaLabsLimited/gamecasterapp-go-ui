@@ -1,10 +1,5 @@
 import * as React from 'react';
 import * as P from 'polished';
-import hoistNonReactStatic from 'hoist-non-react-statics';
-
-import shouldForwardProp from '@styled-system/should-forward-prop';
-import { omit } from 'lodash/fp';
-
 import { createParser } from '@styled-system/core';
 import { css, get } from '@theme-ui/css';
 
@@ -22,23 +17,6 @@ export const variant = ({ scale, prop = 'variant', variants = {}, key }) => {
   };
   return createParser(config);
 };
-
-export function cleanProps(WrappedComponent) {
-  const Enhanced = React.forwardRef((props, ref) =>
-    React.createElement(
-      WrappedComponent,
-      omit(
-        Object.keys(props).filter((key) => !shouldForwardProp(key)),
-        { ...props, ref }
-      )
-    )
-  );
-
-  Enhanced.displayName = `FilteredProps`;
-
-  hoistNonReactStatic(Enhanced, WrappedComponent);
-  return Enhanced;
-}
 
 /*#__PURE__*/
 export const boxSizes = variant({
@@ -68,11 +46,6 @@ export const readableThemeColor = (color, lightColor, darkColor) => {
 
 export const highlightColor = (range, color) => (props) => {
   const fn = P.getLuminance(g(props, color)) > 0.4 ? P.darken : P.lighten;
-  return fn(range)(g(props, color));
-};
-
-export const highlightColor2 = (range, color) => (props) => {
-  const fn = P.getLuminance(g(props, color)) > 0.4 ? P.desaturate : P.saturate;
   return fn(range)(g(props, color));
 };
 
