@@ -11,9 +11,10 @@ jobs:
           node-version: "12.x"
       - name: Install dependencies
         run: yarn
-      - name: Build storybook doc
+      - name: Build storybook docs
         run: yarn workspace @go-ui/docs build-storybook
-      - uses: actions/vercel-deployment@0.5.1
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v19.0.1+1
         with:
           vercelToken: ${{ secrets.VERCEL_TOKEN }}
           vercelOrgId: ${{ secrets.VERCEL_ORG_ID }}

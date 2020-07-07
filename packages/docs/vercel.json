@@ -1,4 +1,5 @@
 {
+  "name": "go-ui-storybook-docs-deployment",
   "version": 2,
   "public": false,
   "github": {
