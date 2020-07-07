@@ -1,7 +1,8 @@
-import { ThemeProvider } from '@theme-ui/core';
 import Theme from '@go-ui/theme';
-import React from 'react';
 import { addDecorator, addParameters } from '@storybook/react';
+import { ThemeProvider } from '@theme-ui/core';
+import React from 'react';
+import { theme } from './theme';
 
 addDecorator((storyFn) => (
   <ThemeProvider theme={Theme}>{storyFn()}</ThemeProvider>
@@ -10,10 +11,8 @@ addDecorator((storyFn) => (
 addParameters({
   options: {
     showRoots: true,
+    theme: theme,
   },
-});
-
-addParameters({
   viewport: {
     viewports: {
       small: {

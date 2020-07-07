@@ -59,7 +59,7 @@ export const variations = (color) => {
         ...(color.startsWith('base') && { borderColor: 'accent' }),
       },
     },
-    transparent: {
+    ghost: {
       color: color,
       '&:hover, &:focus': {
         bg: o(applyAlpha(0.45), getColor(color)),
