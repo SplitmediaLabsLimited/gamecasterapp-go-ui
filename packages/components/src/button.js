@@ -1,8 +1,7 @@
-import { compose as o } from 'lodash/fp';
 import React from 'react';
 import { Box } from '@theme-ui/components';
 import styled from '@emotion/styled';
-
+import { compose as o } from 'lodash/fp';
 import { boxSizes, variant } from '@go-ui/core';
 
 import {
@@ -11,6 +10,8 @@ import {
   highlightColor,
   readableThemeColor,
 } from '@go-ui/color';
+
+const g = (color) => (theme) => getColor(theme, color);
 
 export const variations = (color) => {
   const styles = {
@@ -27,16 +28,7 @@ export const variations = (color) => {
           ),
       },
       '&:focus': {
-        boxShadow: (t) =>
-          '0 0 0 3px ' +
-          o(
-            applyAlpha(0.45),
-            getColor(
-              color.startsWith('base') || color.startsWith('muted')
-                ? 'base.400'
-                : color
-            )
-          )(t),
+        boxShadow: (t) => '0 0 0 3px ' + o(applyAlpha(0.45), g(color))(t),
       },
     },
     outline: {
@@ -54,7 +46,7 @@ export const variations = (color) => {
           '0 0 0 3px ' +
           o(
             applyAlpha(0.45),
-            getColor(color.startsWith('base') ? 'accent' : color)
+            g(color.startsWith('base') ? 'accent' : color)
           )(t),
         ...(color.startsWith('base') && { borderColor: 'accent' }),
       },
@@ -62,7 +54,7 @@ export const variations = (color) => {
     ghost: {
       color: color,
       '&:hover, &:focus': {
-        bg: o(applyAlpha(0.45), getColor(color)),
+        bg: o(applyAlpha(0.46), g(color)),
       },
     },
   };

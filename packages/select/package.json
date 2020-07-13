@@ -1,0 +1,48 @@
+{
+  "name": "@go-ui/select",
+  "version": "0.0.0",
+  "source": "src/index.js",
+  "main": "dist/go-ui-select.js",
+  "module": "dist/go-ui-select.esm.js",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@emotion/styled": "^10.0.27",
+    "@go-ui/color": "^0.0.0",
+    "@go-ui/components": "^0.0.0",
+    "@go-ui/core": "^0.0.0",
+    "@popperjs/core": "^2.4.4",
+    "@reach/rect": "^0.10.5",
+    "@reach/utils": "^0.10.5",
+    "@styled-icons/material": "^10.7.0",
+    "diacritics": "^1.3.0",
+    "downshift": "^3.4.2",
+    "match-sorter": "^4.0.1",
+    "merge-ranges": "^1.0.2",
+    "polished": "^3.6.5",
+    "react-popper": "^2.2.3",
+    "react-transition-group": "^4.3.0",
+    "uncontrollable": "^7.1.1"
+  },
+  "scripts": {
+    "prepare": "microbundle --no-compress --jsx React.createElement --format es,cjs",
+    "watch": "microbundle watch --no-compress --jsx React.createElement --format es,cjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-dom": ">=16.8",
+    "styled-components": ">=4",
+    "styled-icons": "^9.4.0"
+  }
+}

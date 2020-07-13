@@ -36,7 +36,7 @@
     "@go-ui/components": "^0.0.0",
     "@go-ui/core": "^0.0.0",
     "@styled-icons/octicons": "^10.6.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "polished": "^3.6.5"
   }
 }

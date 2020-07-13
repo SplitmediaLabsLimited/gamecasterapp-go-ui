@@ -1,0 +1,31 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { Spinner } from '@go-ui/components';
+
+import {
+  Delete,
+  Save,
+  CloudUpload,
+  KeyboardVoice,
+  Send,
+} from '@styled-icons/material';
+
+<Meta title="Components/Spinner" />
+
+# Spinner
+
+```js
+import { Spinner } from '@go-ui/components';
+```
+
+<Preview>
+  <Story name="Spinner">
+    <Spinner />
+  </Story>
+</Preview>
+
+## Props
+
+| Prop     | Type   | Description                    |
+| -------- | ------ | ------------------------------ |
+| Duration | number | Animation duration of the spin |

@@ -1,9 +1,11 @@
 import { createParser } from '@styled-system/core';
 import * as P from 'polished';
 
-export { css, get } from '@theme-ui/css';
+import { css, get } from '@theme-ui/css';
 export { ThemeProvider } from '@theme-ui/theme-provider';
 export { jsx, merge, useThemeUI } from '@theme-ui/core';
+
+export { css, get };
 
 export const variant = ({ scale, prop = 'variant', variants = {}, key }) => {
   let sx;

@@ -1,4 +1,5 @@
-import { darken, rem, transparentize } from 'polished';
+import { rem } from 'polished';
+import { darken, transparentize } from '@go-ui/color';
 import { fromPairs } from 'lodash/fp';
 
 const heading = {
@@ -171,8 +172,8 @@ export const base = {
     gray: paletteColors.base[500],
     rating: '#f7bf06',
     highlight: paletteColors.base[600],
-    control: darken(0.05, paletteColors.base[600]),
-    muted: darken(0.05, paletteColors.base[600]),
+    control: darken(paletteColors.base[600], 0.05),
+    muted: darken(paletteColors.base[600], 0.05),
     white: '#FCFCFC',
     label: '#FCFCFC',
     volume: '#25a776',
@@ -322,21 +323,23 @@ export const base = {
       },
 
       disabled: {
-        color: (t) => darken(0.25, t.colors.base[500]),
+        color: (t) => {
+          return darken(t.colors.base[500], 0.25);
+        },
         bg: 'base.900',
 
         '&::placeholder': {
-          color: (t) => darken(0.25, t.colors.base[500]),
+          color: (t) => darken(t.colors.base[500], 0.25),
         },
       },
 
       invalid: {
-        bg: (t) => transparentize(0.9, t.colors.system.danger),
+        bg: (t) => transparentize(t.colors.system.danger, 0.9),
         boxShadow: (t) => '0 0 0 2px ' + t.colors.system.danger,
       },
 
       success: {
-        bg: (t) => transparentize(0.9, t.colors.system.success),
+        bg: (t) => transparentize(t.colors.system.success, 0.9),
         boxShadow: (t) => '0 0 0 2px ' + t.colors.system.success,
       },
     },
@@ -376,11 +379,11 @@ export const base = {
       },
 
       disabled: {
-        color: (t) => darken(0.25, t.colors.base[500]),
+        color: (t) => darken(t.colors.base[500], 0.25),
         bg: 'base.900',
 
         '&::placeholder': {
-          color: (t) => darken(0.25, t.colors.base[500]),
+          color: (t) => darken(t.colors.base[500], 0.25),
         },
       },
 

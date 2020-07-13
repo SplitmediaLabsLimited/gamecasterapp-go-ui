@@ -1,0 +1,58 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { Dropdown } from '@go-ui/select';
+import { Flex } from '@go-ui/components';
+
+<Meta title="Components/Dropdown" />
+
+# Dropdown
+
+```js
+import { Dropdown } from '@go-ui/dropdown';
+```
+
+## Vertical Label
+
+<Preview>
+  <Story name="Vertical Label">
+    <Flex sx={{ m: 4, flexDirection: 'column' }}>
+      <Dropdown items={['Item A', 'Item B', 'Item C']} label="Dropdown" />
+    </Flex>
+  </Story>
+</Preview>
+
+## Horizontal Label
+
+<Preview>
+  <Story name="Horizontal label">
+    <Flex sx={{ m: 4, flexDirection: 'column' }}>
+      <Dropdown
+        sx={{ mb: '1.25em' }}
+        items={['Item A', 'Item B', 'Item C']}
+        label="Dropdown A"
+        horizontal
+      />
+    </Flex>
+  </Story>
+</Preview>
+
+## Horizontal Label with full menu width
+
+<Preview>
+  <Story name="Horizontal label with full menu width">
+    <Flex sx={{ m: 4, flexDirection: 'column' }}>
+      <Dropdown
+        items={['Item A', 'Item B', 'Item C']}
+        label="Dropdown"
+        horizontal
+        useFieldAsReference
+      />
+    </Flex>
+  </Story>
+</Preview>
+
+## Props
+
+| Prop  | Type     | Description   |
+| ----- | -------- | ------------- |
+| items | string[] | List of items |

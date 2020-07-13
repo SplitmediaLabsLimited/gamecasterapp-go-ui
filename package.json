@@ -6,6 +6,7 @@
     "start": "yarn workspace docs storybook",
     "build": "yarn workspace docs build-storybook",
     "serve": "yarn workspace docs serve --port 8000",
+    "dev": "lerna run watch --parallel --stream",
     "clean": "lerna run clean",
     "format": "prettier --write \"**/*.js{,on}\" \"**/*.md\"  \"**/*.mdx\"",
     "test": "jest",
