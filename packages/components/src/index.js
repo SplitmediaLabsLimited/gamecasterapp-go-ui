@@ -13,7 +13,6 @@ export {
   Textarea,
   Radio,
   Checkbox,
-  Slider,
   Field,
   Progress,
   Donut,
@@ -34,3 +33,4 @@ export {
 export { Button } from './button';
 export { IconButton } from './icon-button';
 export { Spinner } from './spinner';
+export * from './slider';

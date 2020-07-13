@@ -24,6 +24,7 @@
     "build-storybook": "build-storybook -o public"
   },
   "dependencies": {
+    "@go-ui/color": "^0.0.0",
     "@go-ui/components": "^0.0.0",
     "@styled-icons/material": "^10.7.0",
     "@styled-icons/octicons": "^10.6.0",

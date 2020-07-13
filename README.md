@@ -7,7 +7,7 @@ It re-exports existing components from @theme-ui/components with the following d
 - A default theme
 
 ## Packages:
-@go-ui/utils
+@go-ui/core
 @go-ui/theme
 @go-ui/components
 @go-ui/colors

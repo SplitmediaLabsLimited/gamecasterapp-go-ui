@@ -3,14 +3,14 @@ import React from 'react';
 import { Box } from '@theme-ui/components';
 import styled from '@emotion/styled';
 
+import { boxSizes, variant } from '@go-ui/core';
+
 import {
   applyAlpha,
-  boxSizes,
   getColor,
   highlightColor,
   readableThemeColor,
-  variant,
-} from '@go-ui/utils';
+} from '@go-ui/color';
 
 export const variations = (color) => {
   const styles = {

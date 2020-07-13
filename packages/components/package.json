@@ -14,19 +14,20 @@
   "main": "dist/go-ui-components.js",
   "module": "dist/go-ui-components.esm.js",
   "directories": {
-    "lib": "lib",
+    "lib": "src",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "dist",
+    "src"
   ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/gamecasterapp/go-ui.git"
   },
   "scripts": {
-    "prepare": "microbundle --no-compress --jsx React.createElement",
-    "watch": "microbundle watch --no-compress --jsx React.createElement",
+    "prepare": "microbundle --no-compress --jsx React.createElement --format es,cjs",
+    "watch": "microbundle watch --no-compress --jsx React.createElement --format es,cjs",
     "typecheck": "tsc --noEmit",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -37,16 +38,16 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/is-prop-valid": "^0.8.8",
-    "@emotion/styled": "^10.0.27",
-    "@go-ui/utils": "^0.0.0",
+    "@go-ui/color": "^0.0.0",
+    "@go-ui/core": "^0.0.0",
+    "@reach/slider": "^0.10.5",
     "@styled-icons/octicons": "^10.6.0",
     "@theme-ui/components": "^0.3.1",
-    "@theme-ui/core": "^0.3.1",
-    "@theme-ui/css": "^0.3.1",
     "lodash": "^4.17.15"
   },
   "peerDependencies": {
-    "react": "^16.8.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "publishConfig": {
     "access": "public"

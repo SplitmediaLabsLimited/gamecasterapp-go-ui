@@ -1,9 +1,7 @@
 import React from 'react';
-import { jsx } from '@theme-ui/core';
-import { css as sx } from '@theme-ui/css';
+import { css as sx, ThemeProvider } from '@go-ui/core';
 import Theme from '@go-ui/theme';
 import { addDecorator, addParameters } from '@storybook/react';
-import { ThemeProvider } from '@theme-ui/core';
 import { theme } from './theme';
 import { Global, css } from '@emotion/core';
 

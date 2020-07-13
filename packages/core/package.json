@@ -1,5 +1,5 @@
 {
-  "name": "@go-ui/utils",
+  "name": "@go-ui/core",
   "version": "0.0.0",
   "description": "various go-ui utility functions",
   "keywords": [
@@ -8,26 +8,28 @@
   "author": "cvpcasada <cvpcasada@outlook.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "dist/go-ui-utils.js",
-  "module": "dist/go-ui-utils.esm.js",
+  "source": "src/index.js",
+  "main": "dist/go-ui-core.js",
+  "module": "dist/go-ui-core.esm.js",
   "directories": {
     "lib": "src",
     "test": "__tests__"
   },
   "files": [
+    "dist",
     "src"
   ],
   "scripts": {
-    "prepare": "microbundle --no-compress --jsx React.createElement",
-    "watch": "microbundle watch --no-compress --jsx React.createElement",
+    "prepare": "microbundle --no-compress --jsx React.createElement --format es,cjs",
+    "watch": "microbundle watch --no-compress --jsx React.createElement --format es,cjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@styled-system/core": "^5.1.2",
     "@styled-system/should-forward-prop": "^5.1.5",
+    "@theme-ui/core": "^0.3.1",
     "@theme-ui/css": "^0.3.1",
-    "hoist-non-react-statics": "^3.3.2",
-    "lodash": "^4.17.15",
+    "@theme-ui/theme-provider": "^0.3.1",
     "polished": "^3.6.5"
   },
   "peerDependencies": {

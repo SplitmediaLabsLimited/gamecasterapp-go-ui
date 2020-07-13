@@ -1,10 +1,9 @@
-import { css as sx } from '@theme-ui/css';
+import styled from '@emotion/styled';
+import { css as sx, variant } from '@go-ui/core';
+import { Box } from '@theme-ui/components';
 import * as P from 'polished';
 import React from 'react';
-import { Box } from '@theme-ui/components';
 import { variations } from './button';
-import { variant } from '@go-ui/utils';
-import styled from '@emotion/styled';
 
 const sizeVariants = variant({
   prop: 'size',

@@ -1,7 +1,9 @@
-import * as React from 'react';
-import * as P from 'polished';
 import { createParser } from '@styled-system/core';
-import { css, get } from '@theme-ui/css';
+import * as P from 'polished';
+
+export { css, get } from '@theme-ui/css';
+export { ThemeProvider } from '@theme-ui/theme-provider';
+export { jsx, merge, useThemeUI } from '@theme-ui/core';
 
 export const variant = ({ scale, prop = 'variant', variants = {}, key }) => {
   let sx;
@@ -27,27 +29,6 @@ export const boxSizes = variant({
     large: { px: 4, py: 3 },
   },
 });
-
-export const applyAlpha = (alpha) => (color) => P.rgba(color, alpha);
-
-const g = (t, c) =>
-  get(t, `colors.${c}`, c)
-    .replace(/^var\(--(\w+)(.*?), /, '')
-    .replace(/\)/, '');
-
-export const getColor = (color) => (theme) => g(theme, color);
-
-export const readableThemeColor = (color, lightColor, darkColor) => {
-  return (props) =>
-    P.getLuminance(g(props, color)) > 0.4
-      ? g(props, lightColor)
-      : g(props, darkColor);
-};
-
-export const highlightColor = (range, color) => (props) => {
-  const fn = P.getLuminance(g(props, color)) > 0.4 ? P.darken : P.lighten;
-  return fn(range)(g(props, color));
-};
 
 export const getProps = (test) => (props) => {
   const next = {};

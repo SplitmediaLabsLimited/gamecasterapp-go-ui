@@ -1,16 +1,12 @@
 {
-  "name": "@go-ui/theme",
+  "name": "@go-ui/color",
   "version": "0.0.0",
-  "description": "default go-ui theme",
-  "keywords": [
-    "theme-ui",
-    "theme"
-  ],
+  "description": "> TODO: description",
   "author": "cvpcasada <cvpcasada@outlook.com>",
-  "homepage": "http://go-ui.vercel.com",
+  "homepage": "https://github.com/gamecasterapp/go-ui#readme",
   "license": "MIT",
-  "main": "dist/go-ui-theme.js",
-  "module": "dist/go-ui-theme.esm.js",
+  "main": "dist/go-ui-color.js",
+  "module": "dist/go-ui-color.esm.js",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -19,9 +15,12 @@
     "dist",
     "src"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gamecaster/go-ui.git"
+    "url": "git+https://github.com/gamecasterapp/go-ui.git"
   },
   "scripts": {
     "prepare": "microbundle --no-compress --jsx React.createElement --format es,cjs",
@@ -29,14 +28,10 @@
     "typecheck": "tsc --noEmit"
   },
   "bugs": {
-    "url": "https://github.com/gamecaster/go-ui/issues"
+    "url": "https://github.com/gamecasterapp/go-ui/issues"
   },
   "dependencies": {
-    "@go-ui/color": "^0.0.0",
-    "@go-ui/components": "^0.0.0",
     "@go-ui/core": "^0.0.0",
-    "@styled-icons/octicons": "^10.6.0",
-    "lodash": "^4.17.15",
     "polished": "^3.6.5"
   }
 }
