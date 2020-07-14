@@ -1,5 +1,5 @@
 {
-  "name": "@go-ui/select",
+  "name": "@go-ui/dropdown",
   "version": "0.0.0",
   "source": "src/index.js",
   "main": "dist/go-ui-select.js",

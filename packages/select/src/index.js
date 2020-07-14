@@ -1,4 +1,4 @@
-import Dropdown from './basic-select';
+import Dropdown from './dropdown';
 
 export { Dropdown };
 

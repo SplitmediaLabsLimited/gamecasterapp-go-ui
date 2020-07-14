@@ -192,21 +192,21 @@ export const SearchIcon = styled(Search)(
 export const ArrowIcon = styled(ChevronLeft)(sx(iconCss));
 
 export const CtrlButton = styled.button(
-  css`
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    font-size: 1.5em;
-  `,
+  css({
+    backgroundColor: 'transparent',
+    border: 'none',
+    position: 'absolute',
+    right: '0',
+    top: '0',
+    cursor: 'pointer',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    outline: 'none',
+    fontSize: '1.5em',
+  }),
   (props) =>
     sx({
       color: (t) => t.colors.base[props.disabled ? 600 : 400],
@@ -214,27 +214,27 @@ export const CtrlButton = styled.button(
 );
 
 export const CtrlIconWrap = styled.div(
-  sx({ bg: 'base.600' }),
-  css`
-    appearance: none;
-    display: flex;
-    align-items: center;
-    border-top-right-radius: 0.25em;
-    border-bottom-right-radius: 0.25em;
-    padding-right: 0.3em;
-  `
+  sx({
+    bg: 'base.600',
+    appearance: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    borderTopRightRadius: '0.25em',
+    borderBottomRightRadius: '0.25em',
+    paddingRight: '0.3em',
+  })
 );
 
 export const CtrlIcon = styled(ArrowIcon)(
-  css`
-    font-size: 1.5em;
-    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    user-select: none;
-    top: calc(50% - (0.5em));
-    position: absolute;
-    pointer-events: none;
-    right: 0.2em;
-  `,
+  css({
+    fontSize: '1.5em',
+    transition: 'transform 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+    userSelect: 'none',
+    top: 'calc(50% - (0.5em))',
+    position: 'absolute',
+    pointerEvents: 'none',
+    right: '0.2em',
+  }),
   (props) =>
     sx({
       color: (t) => t.colors.base[props.disabled ? 600 : 400],

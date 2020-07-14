@@ -14,9 +14,9 @@ import {
   Menu,
   Select,
   useSelect,
-} from './select-components';
+} from './shared-components';
 
-const BasicSelect = React.forwardRef(
+const Dropdown = React.forwardRef(
   (
     {
       items,
@@ -214,15 +214,9 @@ const InputCtrl = React.forwardRef(
   }
 );
 
-export {
-  BasicSelect as Select,
-  SelectLabel,
-  SelectCtrl,
-  InputCtrl,
-  SelectMenu,
-};
+export { Dropdown as Select, SelectLabel, SelectCtrl, InputCtrl, SelectMenu };
 
-export default Object.assign(BasicSelect, {
+export default Object.assign(Dropdown, {
   Label: SelectLabel,
   Control: SelectCtrl,
   Input: InputCtrl,

@@ -1,12 +1,12 @@
 import Form from '@go/ui/form';
 import usePopper from '@go/ui/popup/use-popper';
-import { SelectCtrl, SelectLabel, SelectMenu } from './basic-select';
+import { SelectCtrl, SelectLabel, SelectMenu } from './dropdown';
 import { useRect } from '@reach/rect';
 import { useForkedRef, wrapEvent } from '@reach/utils';
 import Downshift from 'downshift';
 import React, { useCallback, useRef } from 'react';
 import { useUncontrolled } from 'uncontrollable';
-import { Select } from './select-components';
+import { Select } from './shared-components';
 
 const stateReducer = (state, changes) => {
   switch (changes.type) {
@@ -22,7 +22,7 @@ const stateReducer = (state, changes) => {
   }
 };
 
-const BasicMultiSelect = React.forwardRef(
+const MultiSelect = React.forwardRef(
   (
     {
       items,
@@ -54,7 +54,7 @@ const BasicMultiSelect = React.forwardRef(
 
     const removeItem = useCallback(
       (item, cb) => {
-        const items = selectedItems.filter(i => i !== item);
+        const items = selectedItems.filter((i) => i !== item);
         setSelectedItems(items);
         cb && cb(items);
       },
@@ -63,7 +63,7 @@ const BasicMultiSelect = React.forwardRef(
 
     const getRemoveButtonProps = useCallback(
       ({ onClick, item, ...props } = {}) => ({
-        onClick: wrapEvent(onClick, e => {
+        onClick: wrapEvent(onClick, (e) => {
           e.stopPropagation();
           removeItem(item, onChange);
         }),
@@ -74,7 +74,7 @@ const BasicMultiSelect = React.forwardRef(
 
     const handleSelection = useCallback(
       (selectedItem, downshift) => {
-        const callOnChange = selectedItems => {
+        const callOnChange = (selectedItems) => {
           if (onChange) {
             onChange(selectedItems, {
               getRemoveButtonProps,
@@ -112,8 +112,7 @@ const BasicMultiSelect = React.forwardRef(
         onChange={handleSelection}
         selectedItem={null}
         {...props}
-        ref={useFieldAsReference ? rootRef : ref}
-      >
+        ref={useFieldAsReference ? rootRef : ref}>
         <SelectLabel>{label}</SelectLabel>
         <SelectCtrl
           placeholder={placeholder}
@@ -132,6 +131,6 @@ const BasicMultiSelect = React.forwardRef(
   }
 );
 
-export { BasicMultiSelect as Select };
+export { MultiSelect as Select };
 
-export default BasicMultiSelect;
+export default MultiSelect;

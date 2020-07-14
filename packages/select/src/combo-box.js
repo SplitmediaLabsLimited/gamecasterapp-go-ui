@@ -1,21 +1,20 @@
-import Form from '@go/ui/form';
-import Group from '@go/ui/group';
-import usePopper from '@go/ui/popup/use-popper';
+import Flex from '@go-ui/components';
+import { usePopper } from 'react-popper';
 import { useRect } from '@reach/rect';
 import { useForkedRef } from '@reach/utils';
-import { css as sx } from '@theme-ui/css';
 import matchSorter from 'match-sorter';
 import React, { useCallback, useMemo, useRef } from 'react';
-import { SelectLabel, SelectMenu } from './basic-select';
+import { SelectLabel, SelectMenu } from './dropdown';
 import highlight from './highlight';
 import {
   CtrlIcon,
   CtrlIconWrap,
+  FormField,
   Highlight,
   Input,
   Select,
   useSelect,
-} from './select-components';
+} from './shared-components';
 const ComboBox = React.forwardRef(
   (
     {
@@ -34,33 +33,37 @@ const ComboBox = React.forwardRef(
     },
     ref
   ) => {
-    const referenceRef = useRef();
-    const popper = usePopper({ placement, modifiers });
-    const referenceSize = useRect(referenceRef);
-    const forkedRef = useForkedRef(referenceRef, popper.reference.ref);
-    const rootRef = useForkedRef(ref, forkedRef);
+    const [rootRef, setRootRef] = useState(null);
+    const [ctrlRef, setCtrlRef] = useState(null);
+    const [popperRef, setPopperRef] = useState(null);
+    const popper = usePopper(
+      useFieldAsReference ? rootRef : ctrlRef,
+      popperRef,
+      {
+        placement,
+        modifiers,
+      }
+    );
+
+    const rootSizeRef = useRef();
+    const ctrlSizeRef = useRef();
+    const rect = useRect(useFieldAsReference ? rootSizeRef : ctrlSizeRef);
 
     return (
-      <Form.Field
-        horizontal
-        ref={useFieldAsReference ? rootRef : ref}
+      <FormField
         as={Select}
+        ref={useForkedRef(ref, setRootRef, rootSizeRef)}
         onStateChange={stateFocusOnParent}
-        {...props}
-      >
+        {...props}>
         <SelectLabel>{label}</SelectLabel>
         <InputCtrl
-          toggleMenuOnFocus={toggleMenuOnFocus}
           placeholder={placeholder}
           size={size}
-          {...(useFieldAsReference ? {} : { ref: forkedRef })}
+          toggleMenuOnFocus={toggleMenuOnFocus}
+          ref={useForkedRef(ctrlSizeRef, setCtrlRef)}
         />
-        <ComboMenu
-          items={items}
-          popper={popper.popper}
-          width={referenceSize && referenceSize.width}
-        />
-      </Form.Field>
+        <ComboMenu items={items} popper={popper} width={rect?.width} />
+      </FormField>
     );
   }
 );
@@ -86,7 +89,7 @@ const InputCtrl = React.forwardRef(
       autoFocus,
       size,
       onFocus: useCallback(
-        e => {
+        (e) => {
           e.preventDefault();
           if (toggleMenuOnFocus) select.toggleMenu();
         },
@@ -101,51 +104,43 @@ const InputCtrl = React.forwardRef(
     });
 
     return (
-      <Group
+      <Flex
+        sx={{
+          borderRadius: '0.25em',
+          '&:focus, &:focus-within': {
+            outline: 'none',
+            boxShadow: `0 0 0 2px ${(t) => t.colors.primary[400]}`,
+            transition: 'box-shadow 120ms',
+          },
+        }}
         style={style}
         className={className}
-        ref={ref}
-        css={`
-          border-radius: 0.25em;
-          &:focus,
-          &:focus-within {
-            outline: none;
-            box-shadow: 0 0 0 2px ${th.color('primary.400')};
-            transition: box-shadow 120ms;
-          }
-        `}
-      >
+        ref={ref}>
         <Input
           value={value || ''}
           {...inputProps}
           ref={inputRef}
-          css={`
-            &:focus {
-              outline: none;
-              box-shadow: none;
-            }
-          `}
+          sx={{ '&:focus': { outline: 'none', boxShadow: 'none' } }}
         />
         <CtrlIconWrap
           {...btnProps}
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault();
             inputRef.current.focus();
-          }}
-        >
+          }}>
           <CtrlIcon
-            css={`
-              top: unset;
-              position: relative;
-              right: unset;
-              pointer-events: unset;
-            `}
+            sx={{
+              top: 'unset',
+              position: 'relative',
+              right: 'unset',
+              pointerEvents: 'unset',
+            }}
             style={{
               transform: `rotate(${select.isOpen ? '90deg' : '270deg'})`,
             }}
           />
         </CtrlIconWrap>
-      </Group>
+      </Flex>
     );
   }
 );
@@ -171,13 +166,13 @@ function ComboMenu({ items, renderItem = menuItemRender, ...props }) {
       select.inputValue
     );
 
-    return items.filter(item => filtered.includes(select.itemToString(item)));
+    return items.filter((item) => filtered.includes(select.itemToString(item)));
   }, [items, select]);
 
   return (
     <SelectMenu
       items={filteredItems.concat(
-        items.filter(val => !filteredItems.includes(val))
+        items.filter((val) => !filteredItems.includes(val))
       )}
       renderItem={renderItem}
       {...props}
