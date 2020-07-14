@@ -27,7 +27,7 @@
     "@go-ui/color": "^0.0.0",
     "@go-ui/components": "^0.0.0",
     "@go-ui/core": "^0.0.0",
-    "@go-ui/select": "^0.0.0",
+    "@go-ui/dropdown": "^0.0.0",
     "@styled-icons/material": "^10.7.0",
     "@styled-icons/octicons": "^10.6.0",
     "@theme-ui/style-guide": "^0.3.0",
